@@ -96,10 +96,10 @@ const (
 	candleColorBlack             = -1
 )
 
-func (c candleColor) IsBlack() bool {
+func (c candleColor) isBlack() bool {
 	return c == candleColorBlack
 }
 
-func (c candleColor) IsWhite() bool {
+func (c candleColor) isWhite() bool {
 	return c == candleColorWhite
 }

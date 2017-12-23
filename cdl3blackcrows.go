@@ -42,14 +42,14 @@ func ThreeBlackCrows(series Series) []int {
 	 * does not consider the trend
 	 */
 	for i := startIdx; i < es.Len(); i++ {
-		if es.candleColor(i-3).IsWhite() &&
-			es.candleColor(i-2).IsBlack() &&
+		if es.candleColor(i-3).isWhite() &&
+			es.candleColor(i-2).isBlack() &&
 			es.lowerShadow(i-2) < es.average(settingShadowVeryShort, shadowVeryShortPeriodTotal[2], i-2) &&
 			// very short lower shadow
-			es.candleColor(i-1).IsBlack() &&
+			es.candleColor(i-1).isBlack() &&
 			es.lowerShadow(i-1) < es.average(settingShadowVeryShort, shadowVeryShortPeriodTotal[1], i-1) &&
 			// very short lower shadow
-			es.candleColor(i).IsBlack() &&
+			es.candleColor(i).isBlack() &&
 			es.lowerShadow(i) < es.average(settingShadowVeryShort, shadowVeryShortPeriodTotal[0], i) &&
 			// very short lower shadow
 			es.Open(i-1) < es.Open(i-2) && es.Open(i-1) > es.Close(i-2) && // 2nd black opens within 1st black's rb

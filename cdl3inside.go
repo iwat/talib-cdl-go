@@ -52,8 +52,8 @@ func ThreeInside(series Series) []int {
 			es.realBody(i-1) <= es.average(settingBodyShort, bodyShortPeriodTotal, i-1) && // 2nd: short
 			math.Max(es.Close(i-1), es.Open(i-1)) < math.Max(es.Close(i-2), es.Open(i-2)) && // engulfed by 1st
 			math.Min(es.Close(i-1), es.Open(i-1)) > math.Min(es.Close(i-2), es.Open(i-2)) &&
-			((es.candleColor(i-2).IsWhite() && es.candleColor(i).IsBlack() && es.Close(i) < es.Open(i-2)) || // 3rd: opposite to 1st
-				(es.candleColor(i-2).IsBlack() && es.candleColor(i).IsWhite() && es.Close(i) > es.Open(i-2))) { // and closing out
+			((es.candleColor(i-2).isWhite() && es.candleColor(i).isBlack() && es.Close(i) < es.Open(i-2)) || // 3rd: opposite to 1st
+				(es.candleColor(i-2).isBlack() && es.candleColor(i).isWhite() && es.Close(i) > es.Open(i-2))) { // and closing out
 			outInteger[i] = -int(es.candleColor(i-2)) * 100
 		}
 
