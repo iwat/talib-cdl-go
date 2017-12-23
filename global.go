@@ -60,3 +60,17 @@ func (rt rangeType) rangeOf(s enhancedSeries, i int) float64 {
 		return 0
 	}
 }
+
+func intMax(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func intMin(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}

@@ -12,10 +12,7 @@ func ThreeInside(series Series) []int {
 
 	// Identify the minimum number of price bar needed to calculate at least one output.
 	// Move up the start index if there is not enough initial data.
-	startIdx := settingBodyShort.avgPeriod + 2
-	if settingBodyShort.avgPeriod < settingBodyLong.avgPeriod {
-		startIdx = settingBodyLong.avgPeriod + 2
-	}
+	startIdx := intMin(settingBodyShort.avgPeriod, settingBodyLong.avgPeriod) + 2
 
 	// Make sure there is still something to evaluate.
 	if startIdx >= es.Len() {
