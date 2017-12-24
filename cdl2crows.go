@@ -40,11 +40,11 @@ func TwoCrows(series Series) []int {
 	 * does not consider the trend
 	 */
 	for i := startIdx; i < es.Len(); i++ {
-		if es.candleColor(i-2).isWhite() &&
+		if es.candleColor(i-2).isWhite() && // 1st: white
 			es.realBody(i-2) > es.average(settingBodyLong, bodyLongPeriodTotal, i-2) && // long
-			es.candleColor(i-1).isBlack() &&
+			es.candleColor(i-1).isBlack() && // 2nd: black
 			es.realBodyGapUp(i-1, i-2) && // gapping up
-			es.candleColor(i).isBlack() &&
+			es.candleColor(i).isBlack() && // 3nd: black
 			es.Open(i) < es.Open(i-1) && es.Open(i) > es.Close(i-1) && // opening within 2nd rb
 			es.Close(i) > es.Open(i-2) && es.Close(i) < es.Close(i-2) { // closing within 1st rb
 			outInteger[i] = -100

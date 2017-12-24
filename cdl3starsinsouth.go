@@ -63,19 +63,19 @@ func ThreeStarsInSouth(series Series) []int {
 			es.candleColor(i).isBlack() && // 3rd black
 			// 1st: long
 			es.realBody(i-2) > es.average(settingBodyLong, bodyLongPeriodTotal, i-2) &&
-			//      with long lower shadow
+			// with long lower shadow
 			es.lowerShadow(i-2) > es.average(settingShadowLong, shadowLongPeriodTotal, i-2) &&
 			es.realBody(i-1) < es.realBody(i-2) && // 2nd: smaller candle
-			es.Open(i-1) > es.Close(i-2) && es.Open(i-1) <= es.High(i-2) && //      that opens higher but within 1st range
-			es.Low(i-1) < es.Close(i-2) && //      and trades lower than 1st close
-			es.Low(i-1) >= es.Low(i-2) && //      but not lower than 1st low
-			//      and has a lower shadow
+			es.Open(i-1) > es.Close(i-2) && es.Open(i-1) <= es.High(i-2) && // that opens higher but within 1st range
+			es.Low(i-1) < es.Close(i-2) && // and trades lower than 1st close
+			es.Low(i-1) >= es.Low(i-2) && // but not lower than 1st low
+			// and has a lower shadow
 			es.lowerShadow(i-1) > es.average(settingShadowVeryShort, shadowVeryShortPeriodTotal[1], i-1) &&
 			// 3rd: small marubozu
 			es.realBody(i) < es.average(settingBodyShort, bodyShortPeriodTotal, i) &&
 			es.lowerShadow(i) < es.average(settingShadowVeryShort, shadowVeryShortPeriodTotal[0], i) &&
 			es.upperShadow(i) < es.average(settingShadowVeryShort, shadowVeryShortPeriodTotal[0], i) &&
-			es.Low(i) > es.Low(i-1) && es.High(i) < es.High(i-1) { //      engulfed by prior candle's range
+			es.Low(i) > es.Low(i-1) && es.High(i) < es.High(i-1) { // engulfed by prior candle's range
 			outInteger[i] = 100
 		}
 	}

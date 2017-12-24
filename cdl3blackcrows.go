@@ -63,7 +63,8 @@ func ThreeBlackCrows(series Series) []int {
 		// add the current range and subtract the first range: this is done after the pattern recognition
 		// when avgPeriod is not 0, that means "compare with the previous candles" (it excludes the current candle)
 		for totIdx := 2; totIdx > 0; totIdx-- {
-			shadowVeryShortPeriodTotal[totIdx] += es.rangeOf(settingShadowVeryShort, i-totIdx) - es.rangeOf(settingShadowVeryShort, shadowVeryShortTrailingIdx-totIdx)
+			shadowVeryShortPeriodTotal[totIdx] += es.rangeOf(settingShadowVeryShort, i-totIdx) -
+				es.rangeOf(settingShadowVeryShort, shadowVeryShortTrailingIdx-totIdx)
 		}
 		shadowVeryShortTrailingIdx++
 	}
