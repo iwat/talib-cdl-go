@@ -74,3 +74,5 @@ func intMin(a, b int) int {
 	}
 	return b
 }
+
+const DefaultFloat64 = -4e+37

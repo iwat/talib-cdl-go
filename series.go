@@ -69,6 +69,14 @@ func (s enhancedSeries) highLowRange(i int) float64 {
 	return s.High(i) - s.Low(i)
 }
 
+func (s enhancedSeries) isCandleGapDown(i1, i2 int) bool {
+	return s.High(i1) < s.Low(i2)
+}
+
+func (s enhancedSeries) isCandleGapUp(i1, i2 int) bool {
+	return s.Low(i1) > s.High(i2)
+}
+
 func (s enhancedSeries) lowerShadow(i int) float64 {
 	return math.Min(s.Close(i), s.Open(i)) - s.Low(i)
 }
