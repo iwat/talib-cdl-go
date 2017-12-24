@@ -6,6 +6,14 @@ import (
 )
 
 // ThreeLineStrike implements ta-lib function TA_CDL3LINESTRIKE.
+//
+//         | |
+//       | ░ ▓
+//     | ░ ░ ▓
+//     ░ ░ | ▓
+//     ░ |   ▓
+//     |     ▓
+//           |
 func ThreeLineStrike(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

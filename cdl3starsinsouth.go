@@ -5,6 +5,12 @@ import (
 )
 
 // ThreeStarsInSouth implements ta-lib function TA_CDL3STARSINSOUTH.
+//
+//     ▓
+//     ▓ ▓
+//     | ▓ ▓
+//     | |
+//     |
 func ThreeStarsInSouth(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

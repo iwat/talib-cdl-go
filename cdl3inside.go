@@ -6,6 +6,13 @@ import (
 )
 
 // ThreeInside implements ta-lib function TA_CDL3INSIDE.
+//
+//     |
+//     ░ | |
+//     ░ ▓ ▓
+//     ░ | ▓
+//     |   ▓
+//         |
 func ThreeInside(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

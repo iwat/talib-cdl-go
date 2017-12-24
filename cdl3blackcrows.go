@@ -5,6 +5,11 @@ import (
 )
 
 // ThreeBlackCrows implements ta-lib function TA_CDL3BLACKCROWS.
+//
+//     ▓
+//     ▓ ▓
+//       ▓ ▓
+//         ▓
 func ThreeBlackCrows(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())
@@ -32,14 +37,14 @@ func ThreeBlackCrows(series Series) []int {
 
 	/* Proceed with the calculation for the requested range.
 	 * Must have:
-	 * - first candle: long white candle
-	 * - second candle: black real body
-	 * - gap between the first and the second candle's real bodies
-	 * - third candle: black candle that opens within the second real body and closes within the first real body
-	 * The meaning of "long" is specified with TA_SetCandleSettings
-	 * ThreeBlack is negative (-1 to -100): two crows is always bearish;
-	 * the user should consider that two crows is significant when it appears in an uptrend, while this function
-	 * does not consider the trend
+	 * - three consecutive and declining black candlesticks
+	 * - each candle must have no or very short lower shadow
+	 * - each candle after the first must open within the prior candle's real body
+	 * - the first candle's close should be under the prior white candle's high
+	 * The meaning of "very short" is specified with TA_SetCandleSettings
+	 * outInteger is negative (-1 to -100): three black crows is always bearish;
+	 * the user should consider that 3 black crows is significant when it appears after a mature advance or at high levels,
+	 * while this function does not consider it
 	 */
 	for i := startIdx; i < es.Len(); i++ {
 		if es.candleColor(i-3).isWhite() &&

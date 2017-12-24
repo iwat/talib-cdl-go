@@ -5,6 +5,11 @@ import (
 )
 
 // ThreeWhiteSoldiers implements ta-lib function TA_CDL3WHITESOLDIERS.
+//
+//         ░
+//       ░ ░
+//     ░ ░
+//     ░
 func ThreeWhiteSoldiers(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

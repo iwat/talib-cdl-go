@@ -5,6 +5,16 @@ import (
 )
 
 // TwoCrows implements ta-lib function TA_CDL2CROWS.
+//
+//       |
+//       ▓ |
+//       ▓ ▓
+//       | ▓
+//     |   ▓
+//     ░   |
+//     ░
+//     ░
+//     |
 func TwoCrows(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

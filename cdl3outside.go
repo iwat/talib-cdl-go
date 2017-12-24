@@ -5,6 +5,14 @@ import (
 )
 
 // ThreeOutside implements ta-lib function TA_CDL3OUTSIDE.
+//
+//       |
+//     | ▓ |
+//     ░ ▓ ▓
+//     ░ ▓ ▓
+//     | ▓ ▓
+//       | ▓
+//         |
 func ThreeOutside(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())
