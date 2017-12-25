@@ -89,6 +89,10 @@ func (s enhancedSeries) realBody(i int) float64 {
 	return math.Abs(s.Close(i) - s.Open(i))
 }
 
+func (s enhancedSeries) realBodyGapDown(i2, i1 int) bool {
+	return math.Max(s.Open(i2), s.Close(i2)) < math.Min(s.Open(i1), s.Close(i1))
+}
+
 func (s enhancedSeries) realBodyGapUp(i2, i1 int) bool {
 	return math.Min(s.Open(i2), s.Close(i2)) > math.Max(s.Open(i1), s.Close(i1))
 }
