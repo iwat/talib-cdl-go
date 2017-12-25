@@ -4,13 +4,6 @@ import (
 	"testing"
 )
 
-/* Proceed with the calculation for the requested range.
- * Must have:
- * - long white (black) real body
- * - no or very short lower (upper) shadow
- * The meaning of "long" and "very short" is specified with TA_SetCandleSettings
- * outInteger is positive (1 to 100) when white (bullish), negative (-1 to -100) when black (bearish)
- */
 func TestBeltHold(t *testing.T) {
 	d := SimpleSeries{
 		Highs:  []float64{21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 161},
