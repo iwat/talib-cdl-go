@@ -6,10 +6,11 @@ import (
 
 // ThreeBlackCrows implements ta-lib function TA_CDL3BLACKCROWS.
 //
-//     ▓
-//     ▓ ▓
-//       ▓ ▓
-//         ▓
+//     ▓       Up:              22%
+//     ▓ ▓     Down:            78%
+//       ▓ ▓   Common Rank:     F-
+//         ▓   Efficiency Rank: A+
+//             Source:          feedroll.com
 func ThreeBlackCrows(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

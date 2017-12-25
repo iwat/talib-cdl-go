@@ -6,10 +6,11 @@ import (
 
 // BeltHold implements ta-lib function TA_CDLBELTHOLD.
 //
-//     .
-//     ░
-//     ░
-//     ░
+//     .   Up:              71%
+//     ░   Down:            29%
+//     ░   Common Rank:     C+
+//     ░   Efficiency Rank: G+
+//         Source:          feedroll.com
 func BeltHold(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

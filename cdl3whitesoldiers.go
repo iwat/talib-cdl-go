@@ -6,10 +6,11 @@ import (
 
 // ThreeWhiteSoldiers implements ta-lib function TA_CDL3WHITESOLDIERS.
 //
-//         ░
-//       ░ ░
-//     ░ ░
-//     ░
+//         ░   Up:              82%
+//       ░ ░   Down:            18%
+//     ░ ░     Common Rank:     G
+//     ░       Efficiency Rank: D+
+//             Source:          feedroll.com
 func ThreeWhiteSoldiers(series Series) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

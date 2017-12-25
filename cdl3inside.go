@@ -7,11 +7,11 @@ import (
 
 // ThreeInside implements ta-lib function TA_CDL3INSIDE.
 //
-//     |
-//     ░ | |
-//     ░ ▓ ▓
-//     ░ | ▓
-//     |   ▓
+//     |       Up:              40%
+//     ░ | |   Down:            60%
+//     ░ ▓ ▓   Common Rank:     D+
+//     ░ | ▓   Efficiency Rank: F
+//     |   ▓   Source:          feedroll.com
 //         |
 func ThreeInside(series Series) []int {
 	es := enhancedSeries{series}

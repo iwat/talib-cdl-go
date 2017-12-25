@@ -6,13 +6,13 @@ import (
 
 // AbandonedBaby implements ta-lib function TA_CDLABANDONEDBABY.
 //
-//       +
+//     |       Up:              70%
+//     ▓   |   Down:            30%
+//     ▓   ░   Common Rank:     J+
+//     ▓   ░   Efficiency Rank: A-
+//     |   ░   Source:          feedroll.com
 //         |
-//     |   ▓
-//     ░   ▓
-//     ░   ▓
-//     ░   |
-//     |
+//       +
 func AbandonedBaby(series Series, penetration float64) []int {
 	es := enhancedSeries{series}
 	outInteger := make([]int, es.Len())

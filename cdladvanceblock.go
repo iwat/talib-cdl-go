@@ -6,11 +6,11 @@ import (
 
 // AdvanceBlock implements ta-lib function TA_CDLADVANCEBLOCK.
 //
-//       | |
-//       | ░
-//     . ░ .
-//     ░ .
-//     ░
+//       | |   Up:              64%
+//       | ░   Down:            36%
+//     | ░ |   Common Rank:     G
+//     ░ |     Efficiency Rank: F
+//     ░       Source:          feedroll.com
 //     ░
 func AdvanceBlock(series Series) []int {
 	es := enhancedSeries{series}

@@ -7,11 +7,11 @@ import (
 
 // ThreeLineStrike implements ta-lib function TA_CDL3LINESTRIKE.
 //
-//         | |
-//       | ░ ▓
-//     | ░ ░ ▓
-//     ░ ░ | ▓
-//     ░ |   ▓
+//         | |   Up:              35%
+//       | ░ ▓   Down:            65%
+//     | ░ ░ ▓   Common Rank:     J
+//     ░ ░ | ▓   Efficiency Rank: A+
+//     ░ |   ▓   Source:          feedroll.com
 //     |     ▓
 //           |
 func ThreeLineStrike(series Series) []int {

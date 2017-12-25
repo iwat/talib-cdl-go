@@ -6,11 +6,11 @@ import (
 
 // ThreeOutside implements ta-lib function TA_CDL3OUTSIDE.
 //
-//       |
-//     | ▓ |
-//     ░ ▓ ▓
-//     ░ ▓ ▓
-//     | ▓ ▓
+//       |     Up:              31%
+//     | ▓ |   Down:            69%
+//     ░ ▓ ▓   Common Rank:     C+
+//     ░ ▓ ▓   Efficiency Rank: D-
+//     | ▓ ▓   Source:          feedroll.com
 //       | ▓
 //         |
 func ThreeOutside(series Series) []int {

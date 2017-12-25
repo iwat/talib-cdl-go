@@ -6,11 +6,11 @@ import (
 
 // TwoCrows implements ta-lib function TA_CDL2CROWS.
 //
-//       |
-//       ▓ |
-//       ▓ ▓
-//       | ▓
-//     |   ▓
+//       |     Up:              46%
+//       ▓ |   Down:            54%
+//       ▓ ▓   Common Rank:     G
+//       | ▓   Efficiency Rank: G+
+//     |   ▓   Source:          feedroll.com
 //     ░   |
 //     ░
 //     ░
