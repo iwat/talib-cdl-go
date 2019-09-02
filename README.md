@@ -9,19 +9,4 @@ For more information, see test cases and [godoc](https://godoc.org/github.com/iw
 License
 -------
 
-It's [MIT](https://github.com/iwat/qxargs/blob/master/LICENSE) license.
-
-In short:
-
-- Permissions
-  - Commercial use
-  - Modification
-  - Distribution
-  - Private use
-
-- Conditions
-  - License and copyright notice
-
-- Limitations
-  - Liability
-  - Warranty
+[MIT](https://github.com/iwat/talib-cdl-go/blob/master/LICENSE)
