@@ -2,17 +2,15 @@ package talibcdl
 
 import (
 	"fmt"
-	"math"
 	"os/exec"
-	"path/filepath"
-	"reflect"
-	"runtime"
 	"strconv"
 	"strings"
 	"testing"
 )
 
 func compareInts(t *testing.T, series SimpleSeries, goResult []int, taCall string) {
+	t.Helper()
+
 	pyprog := fmt.Sprintf(`import talib,numpy
 testOpen = numpy.array(%s)
 testHigh = numpy.array(%s)
@@ -24,8 +22,10 @@ testRand = numpy.array(%s)
 print(' '.join([str(p) for p in result]).replace('nan','0.0'))`,
 		a2s(series.Opens), a2s(series.Highs), a2s(series.Lows), a2s(series.Closes), a2s(series.Volumes), a2s(series.Rands), taCall)
 
-	pyOut, err := exec.Command("python", "-c", pyprog).Output()
-	ok(t, err)
+	pyOut, err := exec.Command("python3", "-c", pyprog).CombinedOutput()
+	if err != nil {
+		t.Fatalf("unexpected error: %v\n%s", err, string(pyOut))
+	}
 
 	var pyResult []int
 	strResult := strings.Fields(string(pyOut))
@@ -35,40 +35,17 @@ print(' '.join([str(p) for p in result]).replace('nan','0.0'))`,
 		}
 	}
 
-	equals(t, len(goResult), len(pyResult))
+	if len(goResult) != len(pyResult) {
+		t.Fatalf("different size\ngo: %#v\npy: %#v\n", len(goResult), len(pyResult))
+	}
 
 	for i := 0; i < len(goResult); i++ {
 		if goResult[i] != pyResult[i] {
-			_, file, line, _ := runtime.Caller(1)
-			fmt.Printf("%s:%d:\n\tgo!: %#v\n\tpy!: %#v\n", filepath.Base(file), line, goResult[i], pyResult[i])
-			t.FailNow()
+			t.Fatalf("index %d mismatch\ngo: %#v\npy: %#v\ngo full: %v\npy full: %v", i, goResult[i], pyResult[i], goResult, pyResult)
 		}
 	}
 }
 
 func a2s(a []float64) string { // go float64 array to python list initializer string
 	return strings.Replace(fmt.Sprintf("%f", a), " ", ",", -1)
-}
-
-func ok(t *testing.T, err error) {
-	if err != nil {
-		_, file, line, _ := runtime.Caller(1)
-		fmt.Printf("%s:%d: unexpected error: %s\n", filepath.Base(file), line, err.Error())
-		t.FailNow()
-	}
-}
-
-func equals(t *testing.T, exp, act interface{}) {
-	if !reflect.DeepEqual(exp, act) {
-		_, file, line, _ := runtime.Caller(1)
-		fmt.Printf("%s:%d:\n\tgo: %#v\n\tpy: %#v\n", filepath.Base(file), line, exp, act)
-		t.FailNow()
-	}
-}
-
-func round(input float64) float64 {
-	if input < 0 {
-		return math.Ceil(input - 0.5)
-	}
-	return math.Floor(input + 0.5)
 }
